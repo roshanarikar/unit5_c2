@@ -1,4 +1,30 @@
+import {useState,useEffect} from "react"
+import axios from "axios";
+import { getDefaultNormalizer } from "@testing-library/react";
+
 export const ShowStudents = () => {
+  const [array,setArray] = useState([])
+  const [data,setData] = useState([])
+
+  useEffect(()=>{
+    getData();
+  },[])
+
+  const getData = () =>{
+    axios.get(`http://localhost:8080/students`).then(res=>{
+      setArray([...res.data])
+    })
+  }
+
+  function compareId(a,b){
+    if(+a.id < +b.id){
+      return -1;
+    }
+    if(+a.id > +b.id){
+      return 1;
+    }
+    return 0
+  }
   return (
     <div>
       <div className="controls">
