@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { AddStudent } from "./components/AddStudent";
+import { ShowStudents } from "./components/ShowStudents";
 
 function App() {
+  const [show,setShow] = useState(true)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={()=>setShow(show? false:true)} className="togglebtn">{show ? "Add Students": "Show"}</button>
+      {show ?<ShowStudents/> :<AddStudent/> }
+      {/* Show either  AddStudent component or ShowStudents dependeing on the above button click  */}
+      {/* make sure the table is shown initially, do not show form initially */}
+      {/* make sure to show either of them do not both together */}
     </div>
   );
 }
