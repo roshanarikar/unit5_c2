@@ -82,6 +82,7 @@ export const AddStudent = () => {
           name="email"
           className="email"
           placeholder="enter email"
+          value={formData.Email} onChange={handleChange}
         />
       </div>
 
@@ -94,6 +95,9 @@ export const AddStudent = () => {
             className="male"
             type="radio"
             value={"male"}
+            onChange={(e)=>{
+              handleCheckbox(e)
+            }}
           />{" "}
           Female{" "}
           <input
@@ -101,6 +105,9 @@ export const AddStudent = () => {
             className="female"
             type="radio"
             value={"female"}
+            onChange={(e)=>{
+              handleCheckbox(e)
+            }}
           />
         </div>
       </div>
@@ -120,6 +127,7 @@ export const AddStudent = () => {
           name="tenth_score"
           className="tenth_score"
           placeholder="enter 10th score"
+          value={formData.tenthScore} onChange={handleChange}
         />{" "}
       </div>
       <div>
@@ -129,7 +137,8 @@ export const AddStudent = () => {
           name="twelth_score"
           className="twelth_score"
           placeholder="enter 12th score"
-        />{" "}
+          value={formData.twelthScore} onChange={handleChange}
+/>{" "}
       </div>
       <div>
         <select
